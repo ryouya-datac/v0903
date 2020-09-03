@@ -12,9 +12,20 @@ namespace v0903
 {
     public partial class Form1 : Form
     {
+        int vx = rand.Next(-20, 19);
+        int vy = rand.Next(-20, 19);
+        static Random rand = new Random();
         public Form1()
         {
             InitializeComponent();
+            label1.Left = rand.Next(ClientSize.Width - label1.Width);
+            label1.Top = rand.Next(ClientSize.Height - label1.Height);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Left += vx;
+            label1.Top += vy;
         }
     }
 }
